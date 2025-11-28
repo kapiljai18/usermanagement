@@ -15,6 +15,7 @@ const AllUsers=()=>
     return(
         <>
             <div>
+                <h1>Employee Data</h1>
                 {!showemp && (
                     <button onClick={addEmp}>Add Emp</button>
                 )}
@@ -23,7 +24,7 @@ const AllUsers=()=>
                 <table border={1} cellPadding={10} cellSpacing={10}>
                     <tbody>
                         {emp.map(e=>(
-                            <SingleUser key={e.id} user={e} deleteUser={deleteUser}/>
+                            <SingleUser key={e.id} user={e} deleteUser={""}/>
                         ))}
                     </tbody>
                 </table>
