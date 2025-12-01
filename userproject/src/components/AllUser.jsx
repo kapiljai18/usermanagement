@@ -12,6 +12,20 @@ const AllUsers=()=>
         setShowemp(true);
     }
 
+    const deleteAllUser=()=>{
+        setEmp([]);
+        setShowemp(false);
+    }
+
+    const deleteUser=(id)=>{
+        const updatedEmp=emp.filter(e=>e.id!==id);
+        setEmp(updatedEmp);
+        if(updatedEmp.length===0)
+        {
+            setShowemp(false);
+        }
+    }
+
     return(
         <>
             <div>
@@ -24,10 +38,14 @@ const AllUsers=()=>
                 <table border={1} cellPadding={10} cellSpacing={10}>
                     <tbody>
                         {emp.map(e=>(
-                            <SingleUser key={e.id} user={e} deleteUser={""}/>
+                            <SingleUser key={e.id} user={e} deleteUser={deleteUser}/>
                         ))}
                     </tbody>
                 </table>
+                )}
+
+                {showemp &&(
+                    <button onClick={deleteAllUser}>Delete All users</button>
                 )}
             </div>
         </>
